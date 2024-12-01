@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
-import { type Game } from "../types";
+import { type GendersTypes, type Game } from "../types";
 
-const gameSchema = new Schema<Partial<Game>>({
+export const gameSchema = new Schema<Omit<Game, "id">>({
   name: String,
   price: String,
   isFree: Boolean,
@@ -9,7 +9,7 @@ const gameSchema = new Schema<Partial<Game>>({
   description: String,
   developer: String,
   date: String,
-  genders: Array,
+  genders: Array<GendersTypes>,
 });
 
 const GameModel = mongoose.model("Game", gameSchema, "games");
