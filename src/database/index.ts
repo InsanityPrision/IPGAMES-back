@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import mongoose from "mongoose";
 
-const connectDataBase = async () => {
+const connectDataBase = async (): Promise<void> => {
   const dataBaseConnectionString = process.env.DATA_BASE;
 
   if (!dataBaseConnectionString) {
