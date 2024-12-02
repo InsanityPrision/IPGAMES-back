@@ -1,6 +1,6 @@
 import { type Request, type Response } from "express";
-import GamesController from "../gamesController";
 import { type Model } from "mongoose";
+import GamesController from "../gamesController";
 import { type Game } from "../../types";
 
 afterEach(() => {
