@@ -1,6 +1,6 @@
 import { type Response, type Request } from "express";
-import { type GameControllerStructure } from "./types";
 import { type Model } from "mongoose";
+import { type GameControllerStructure } from "./types";
 import { type Game } from "../types";
 
 class GamesController implements GameControllerStructure {
