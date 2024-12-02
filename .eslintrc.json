@@ -15,7 +15,13 @@
           "error",
           "interface"
         ],
-        "@typescript-eslint/array-type": "off"
+        "@typescript-eslint/array-type": "off",
+        "new-cap": [
+          "error",
+          {
+            "capIsNewExceptions": ["Router"]
+          }
+        ]
       },
       "overrides": [
         {
