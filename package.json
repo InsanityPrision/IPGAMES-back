@@ -1,10 +1,11 @@
 {
   "name": "ipgames-back",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "type": "module",
   "scripts": {
-    "start": "node --env-file=.env .",
+    "start": "node dist/index.js",
+    "start:dev": "node --env-file=.env .",
     "build": "tsc",
     "build:dev": "tsc -w",
     "prepare": "husky",
