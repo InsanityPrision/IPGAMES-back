@@ -5,6 +5,14 @@ const jestConfig: JestConfigWithTsJest = {
   rootDir: "src",
   preset: "ts-jest",
   resolver: "ts-jest-resolver",
+  coverageDirectory: "../coverage",
+  collectCoverageFrom: [
+    "**/*.ts",
+    "!database/index.ts",
+    "!index.ts",
+    "!game/model/*.ts",
+    "!server/startServer.ts",
+  ],
   ...createDefaultPreset(),
 };
 
