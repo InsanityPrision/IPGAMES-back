@@ -1,14 +1,8 @@
 import chalk from "chalk";
 import mongoose from "mongoose";
 
-const connectDataBase = async (): Promise<void> => {
-  const dataBaseConnectionString = process.env.DATA_BASE;
-
-  if (!dataBaseConnectionString) {
-    throw new Error("Missing connection string");
-  }
-
-  await mongoose.connect(dataBaseConnectionString);
+const connectDataBase = async (connectingString: string): Promise<void> => {
+  await mongoose.connect(connectingString);
 
   console.log(chalk.blue("Connected with data base"));
 };
