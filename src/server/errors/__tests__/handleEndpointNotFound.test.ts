@@ -1,6 +1,6 @@
 import { type Request, type NextFunction, type Response } from "express";
 import handleEndpointNotFound from "../handleEndpointNotFound";
-import ServerError from "../ServerError";
+import ServerError from "../ServerError/ServerError";
 
 describe("Given the handleEndpointNotFound middleware", () => {
   describe("When receives a next function", () => {

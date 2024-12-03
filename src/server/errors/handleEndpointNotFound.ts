@@ -1,5 +1,5 @@
 import { type NextFunction, type Request, type Response } from "express";
-import ServerError from "./ServerError";
+import ServerError from "./ServerError/ServerError.js";
 
 const handleEndpointNotFound = (
   _req: Request,
