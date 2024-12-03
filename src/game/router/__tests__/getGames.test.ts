@@ -1,10 +1,10 @@
 import request from "supertest";
 import { MongoMemoryServer } from "mongodb-memory-server";
-import app from "..";
-import connectDataBase from "../../database";
-import GameModel from "../../game/model/GameModel";
-import { type Game } from "../../game/types";
 import mongoose from "mongoose";
+import app from "../../../server";
+import connectDataBase from "../../../database";
+import GameModel from "../../model/GameModel";
+import { type Game } from "../../types";
 
 let server: MongoMemoryServer;
 
