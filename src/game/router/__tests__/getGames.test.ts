@@ -30,23 +30,27 @@ describe("Given the GET /games endpoint", () => {
       await GameModel.create(
         {
           name: "Counter Strike",
-          price: "0",
+          price: 0,
           isFree: true,
           rate: 4,
           description: "Counter Strike...",
           developer: "Valve",
           date: new Date(),
           genders: [],
+          imageUrl: "/counter.webp",
+          imageAlt: "counter",
         },
         {
           name: "Katana Zero",
-          price: "13",
+          price: 13,
           isFree: false,
           rate: 5,
           description: "Katana Zero...",
           developer: "Devolver Digital",
           date: new Date(),
           genders: [],
+          imageUrl: "/katana.webp",
+          imageAlt: "katana",
         },
       );
 

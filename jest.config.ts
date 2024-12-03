@@ -10,7 +10,6 @@ const jestConfig: JestConfigWithTsJest = {
     "**/*.ts",
     "!database/index.ts",
     "!index.ts",
-    "!game/model/*.ts",
     "!server/startServer.ts",
   ],
   ...createDefaultPreset(),
