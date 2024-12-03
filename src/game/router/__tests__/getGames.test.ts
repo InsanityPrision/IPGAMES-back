@@ -1,10 +1,10 @@
 import request from "supertest";
 import { MongoMemoryServer } from "mongodb-memory-server";
-import app from "..";
-import connectDataBase from "../../database";
-import GameModel from "../../game/model/GameModel";
-import { type Game } from "../../game/types";
 import mongoose from "mongoose";
+import app from "../../../server";
+import connectDataBase from "../../../database";
+import GameModel from "../../model/GameModel";
+import { type Game } from "../../types";
 
 let server: MongoMemoryServer;
 
@@ -33,8 +33,8 @@ describe("Given the GET /games endpoint", () => {
           price: "0",
           isFree: true,
           rate: 4,
-          description: "",
-          developer: "",
+          description: "Counter Strike...",
+          developer: "Valve",
           date: new Date(),
           genders: [],
         },
@@ -43,8 +43,8 @@ describe("Given the GET /games endpoint", () => {
           price: "13",
           isFree: false,
           rate: 5,
-          description: "",
-          developer: "",
+          description: "Katana Zero...",
+          developer: "Devolver Digital",
           date: new Date(),
           genders: [],
         },

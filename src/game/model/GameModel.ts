@@ -1,15 +1,49 @@
 import mongoose, { Schema } from "mongoose";
-import { type GendersTypes, type Game } from "../types";
+import { type Game } from "../types";
 
-export const gameSchema = new Schema<Omit<Game, "id">>({
-  name: String,
-  price: String,
-  isFree: Boolean,
-  rate: String,
-  description: String,
-  developer: String,
-  date: String,
-  genders: Array<GendersTypes>,
+export const gameSchema = new Schema<Game>({
+  name: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  isFree: {
+    type: Boolean,
+    required: true,
+  },
+  rate: {
+    type: Number,
+    enum: [1, 2, 3, 4, 5],
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  developer: {
+    type: String,
+    required: true,
+  },
+  date: {
+    type: Date,
+    required: true,
+  },
+  genders: {
+    type: [String],
+    enum: [
+      "Action",
+      "Shooter",
+      "RPG",
+      "Adventure",
+      "Simulation",
+      "Horror",
+      "Sports",
+      "Puzzle",
+    ],
+    required: true,
+  },
 });
 
 const GameModel = mongoose.model("Game", gameSchema, "games");
