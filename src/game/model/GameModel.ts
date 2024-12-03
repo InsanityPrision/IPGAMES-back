@@ -16,7 +16,7 @@ export const gameSchema = new Schema<Game>({
   },
   rate: {
     type: Number,
-    enum: [1, 2, 3, 4, 5],
+    enum: [0, 1, 2, 3, 4, 5],
   },
   description: {
     type: String,
@@ -42,6 +42,14 @@ export const gameSchema = new Schema<Game>({
       "Sports",
       "Puzzle",
     ],
+    required: true,
+  },
+  imageUrl: {
+    type: String,
+    required: true,
+  },
+  imageAlt: {
+    type: String,
     required: true,
   },
 });

@@ -20,4 +20,6 @@ export interface Game {
   developer: string;
   date: Date;
   genders: GenderType[];
+  imageUrl: string;
+  imageAlt: string;
 }
