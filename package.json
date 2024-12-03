@@ -42,7 +42,7 @@
   "dependencies": {
     "@types/express": "^5.0.0",
     "chalk": "^4.1.2",
-    "express": "^4.21.1",
+    "express": "^5.0.1",
     "lint-staged": "^12.3.2",
     "morgan": "^1.10.0",
     "ts-jest-resolver": "^2.0.1",
