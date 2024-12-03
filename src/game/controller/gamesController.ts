@@ -6,7 +6,7 @@ import { type Game } from "../types";
 class GamesController implements GameControllerStructure {
   constructor(private readonly gamesModel: Model<Omit<Game, "id">>) {}
 
-  get = async (_req: Request, res: Response): Promise<void> => {
+  get = async (req: Request, res: Response): Promise<void> => {
     const statusCode = 200;
 
     const games = await this.gamesModel.find().exec();
