@@ -11,6 +11,7 @@ const jestConfig: JestConfigWithTsJest = {
     "!database/index.ts",
     "!index.ts",
     "!server/startServer.ts",
+    "!testsSetup/connectDataBaseTests.ts",
   ],
   ...createDefaultPreset(),
 };
