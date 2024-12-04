@@ -1,25 +1,10 @@
 import request from "supertest";
-import { MongoMemoryServer } from "mongodb-memory-server";
-import mongoose from "mongoose";
 import app from "../../../server";
-import connectDataBase from "../../../database";
-import GameModel from "../../model/GameModel";
 import { type Game } from "../../types";
+import GameModel from "../../model/GameModel";
+import connectDataBaseTests from "../../../testsSetup/connectDataBaseTests";
 
-let server: MongoMemoryServer;
-
-beforeAll(async () => {
-  server = await MongoMemoryServer.create();
-  const connectionString = server.getUri();
-
-  await connectDataBase(connectionString);
-});
-
-afterAll(async () => {
-  await server.stop();
-
-  await mongoose.disconnect();
-});
+connectDataBaseTests();
 
 describe("Given the GET /games endpoint", () => {
   describe("When it receives a request", () => {
