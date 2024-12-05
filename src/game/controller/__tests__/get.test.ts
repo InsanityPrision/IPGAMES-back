@@ -11,11 +11,13 @@ describe("Given the get method of GamesController class", () => {
   describe("When it receives a response", () => {
     const mockGamesModel: Partial<Model<Omit<Game, "id">>> = {
       find: jest.fn().mockReturnValue({
-        exec: jest.fn().mockResolvedValue([
-          {
-            name: "Counter Strike",
-          },
-        ]),
+        sort: jest.fn().mockReturnValue({
+          exec: jest.fn().mockResolvedValue([
+            {
+              name: "Counter Strike",
+            },
+          ]),
+        }),
       }),
     };
     const gamesController = new GamesController(

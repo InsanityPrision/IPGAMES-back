@@ -9,7 +9,7 @@ class GamesController implements GameControllerStructure {
   get = async (_req: Request, res: Response): Promise<void> => {
     const statusCode = 200;
 
-    const games = await this.gamesModel.find().exec();
+    const games = await this.gamesModel.find().sort({ name: 1 }).exec();
 
     res.status(statusCode).json({ games });
   };
