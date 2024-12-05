@@ -12,6 +12,7 @@ const jestConfig: JestConfigWithTsJest = {
     "!index.ts",
     "!server/startServer.ts",
     "!testsSetup/connectDataBaseTests.ts",
+    "!server/cors.ts",
   ],
   ...createDefaultPreset(),
 };

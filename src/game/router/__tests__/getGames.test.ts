@@ -12,7 +12,7 @@ describe("Given the GET /games endpoint", () => {
       const expectedGameName1 = "Counter Strike";
       const expectedGameName2 = "Katana Zero";
 
-      await GameModel.create(
+      await GameModel.create([
         {
           name: "Counter Strike",
           price: 0,
@@ -37,7 +37,7 @@ describe("Given the GET /games endpoint", () => {
           imageUrl: "/katana.webp",
           imageAlt: "katana",
         },
-      );
+      ]);
 
       const response = await request(app).get("/games").expect(200);
 
