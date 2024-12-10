@@ -8,8 +8,9 @@ export const enbaleCors = (app: Express): void => {
       throw new Error("Envaironment variable WHITELIST_URLS does not exist");
     }
 
-    const urls = url.split(",");
+    const urls: (string | RegExp)[] = url.split(",");
 
+    urls.push(/.netlify.app/);
     app.use(
       cors({
         origin: urls,
