@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import { type Game } from "../types";
 
-export const gameSchema = new Schema<Game>({
+export const gameSchema = new Schema<Omit<Game, "_id">>({
   name: {
     type: String,
     required: true,

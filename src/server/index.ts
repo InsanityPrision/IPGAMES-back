@@ -11,6 +11,8 @@ app.disable("x-powered-by");
 
 app.use(morgan("dev"));
 
+app.use(express.json());
+
 enbaleCors(app);
 
 app.use("/games", gamesRouter);
