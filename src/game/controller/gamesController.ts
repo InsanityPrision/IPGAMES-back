@@ -1,6 +1,6 @@
 import { type Response, type Request } from "express";
 import { type Model } from "mongoose";
-import { type GameControllerStructure } from "./types";
+import { type RequestWithGame, type GameControllerStructure } from "./types";
 import { type Game } from "../types";
 import ServerError from "../../server/errors/ServerError/ServerError.js";
 
@@ -15,8 +15,8 @@ class GamesController implements GameControllerStructure {
     res.status(statusCode).json({ games });
   };
 
-  post = async (req: Request, res: Response) => {
-    const { name } = req.body as Omit<Game, "_id">;
+  post = async (req: RequestWithGame, res: Response) => {
+    const { name } = req.body;
 
     const sameGame = await this.gamesModel.findOne({ name });
 
