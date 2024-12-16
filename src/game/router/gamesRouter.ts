@@ -7,5 +7,6 @@ const gamesController = new GamesController(GameModel);
 
 gamesRouter.get("/", gamesController.get);
 gamesRouter.post("/", gamesController.post);
+gamesRouter.delete("/:_id", gamesController.delete);
 
 export default gamesRouter;
