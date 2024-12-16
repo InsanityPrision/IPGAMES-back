@@ -9,9 +9,9 @@ afterEach(() => {
 });
 
 describe("Given the delete method of gamesController class", () => {
-  describe("When it receives a request", () => {
+  describe("When it receives a request with in params id '1234356789123456789123456'", () => {
     const newGame: Game = {
-      _id: "1234356789123456789123456",
+      _id: "123456789123456789123456",
       name: "Outer Wilds",
       price: 22.99,
       isFree: false,

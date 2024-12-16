@@ -37,7 +37,7 @@ class GamesController implements GameControllerStructure {
   delete = async (req: RequestWithId, res: Response) => {
     const { _id } = req.params;
 
-    if (_id.length <= 23) {
+    if (_id.length !== 24) {
       throw new ServerError(400, "Id is not correct");
     }
 
