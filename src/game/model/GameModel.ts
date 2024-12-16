@@ -27,7 +27,7 @@ export const gameSchema = new Schema<Omit<Game, "_id">>({
     required: true,
   },
   date: {
-    type: Date,
+    type: String,
     required: true,
   },
   genders: {
