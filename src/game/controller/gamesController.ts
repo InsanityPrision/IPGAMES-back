@@ -1,6 +1,10 @@
 import { type Response, type Request } from "express";
 import { type Model } from "mongoose";
-import { type RequestWithGame, type GameControllerStructure } from "./types";
+import {
+  type RequestWithGame,
+  type GameControllerStructure,
+  type RequestWithId,
+} from "./types";
 import { type Game } from "../types";
 import ServerError from "../../server/errors/ServerError/ServerError.js";
 
@@ -28,6 +32,22 @@ class GamesController implements GameControllerStructure {
     const newGame = await this.gamesModel.create(req.body);
 
     res.status(201).json({ game: newGame });
+  };
+
+  delete = async (req: RequestWithId, res: Response) => {
+    const { _id } = req.params;
+
+    if (_id.length <= 23) {
+      throw new ServerError(400, "Id is not correct");
+    }
+
+    const deletedGame = await this.gamesModel.findByIdAndDelete(_id);
+
+    if (!deletedGame) {
+      throw new ServerError(404, "Failed deleting game");
+    }
+
+    res.status(200).json({ game: deletedGame });
   };
 }
 
