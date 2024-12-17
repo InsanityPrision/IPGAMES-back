@@ -1,8 +1,8 @@
+import { type Response } from "express";
 import { type Model } from "mongoose";
 import { type Game } from "../../types";
-import GamesController from "../gamesController";
 import { type RequestWithId } from "../types";
-import { type Response } from "express";
+import GamesController from "../gamesController";
 
 describe("Given the getById method of gamesController class", () => {
   describe("When it receives a request with in params id '1234356789123456789123456'", () => {
