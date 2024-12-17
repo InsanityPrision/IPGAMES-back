@@ -44,7 +44,7 @@ describe("Given the get method of GamesController class", () => {
       expect(res.status).toHaveBeenCalledWith(200);
     });
 
-    test("Then it shoudl call json method with a game with title 'Counter Strike'", async () => {
+    test("Then it should call json method with a game with title 'Outer Wilds'", async () => {
       await gamesController.get(req as Request, res as Response);
 
       expect(res.json).toHaveBeenCalledWith(games);
