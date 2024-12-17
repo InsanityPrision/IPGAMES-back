@@ -49,6 +49,22 @@ class GamesController implements GameControllerStructure {
 
     res.status(200).json({ game: deletedGame });
   };
+
+  getById = async (req: RequestWithId, res: Response) => {
+    const { _id } = req.params;
+
+    if (_id.length !== 24) {
+      throw new ServerError(400, "Id is not correct");
+    }
+
+    const game = await this.gamesModel.findById(_id);
+
+    if (!game) {
+      throw new ServerError(404, "Failed finding game");
+    }
+
+    res.status(200).json({ game });
+  };
 }
 
 export default GamesController;
