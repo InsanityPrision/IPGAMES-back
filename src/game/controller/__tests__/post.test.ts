@@ -24,14 +24,12 @@ describe("Given the post method of GamesController class", () => {
       imageAlt: "Outer Wilds cover",
     };
 
-    const mockGamesModel: Partial<Model<Omit<Game, "_id">>> = {
+    const mockGamesModel: Partial<Model<Game>> = {
       findOne: jest.fn().mockResolvedValue(null),
       create: jest.fn().mockResolvedValue(outerWilds),
     };
 
-    const gamesController = new GamesController(
-      mockGamesModel as Model<Omit<Game, "_id">>,
-    );
+    const gamesController = new GamesController(mockGamesModel as Model<Game>);
 
     const req: Partial<Request> = {
       body: outerWilds,

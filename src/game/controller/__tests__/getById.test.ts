@@ -21,13 +21,11 @@ describe("Given the getById method of gamesController class", () => {
       imageAlt: "Outer Wilds cover",
     };
 
-    const mockGamesModel: Partial<Model<Omit<Game, "_id">>> = {
+    const mockGamesModel: Partial<Model<Game>> = {
       findById: jest.fn().mockResolvedValue(outerWilds),
     };
 
-    const gamesController = new GamesController(
-      mockGamesModel as Model<Omit<Game, "_id">>,
-    );
+    const gamesController = new GamesController(mockGamesModel as Model<Game>);
 
     const res: Partial<Response> = {
       status: jest.fn().mockReturnThis(),
