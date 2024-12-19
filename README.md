@@ -137,3 +137,13 @@ Response:
   }
 }
 ```
+
+## **Environment Variables**
+
+- A `.env` file is required to use the app.
+
+```env
+PORT=<PortNumber>
+DATA_BASE=<StringConnectionMongoDb>
+WHITELIST_URLS=<permitedUrl>
+```
