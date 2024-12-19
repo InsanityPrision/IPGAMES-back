@@ -1,5 +1,5 @@
 import { type Response, type Request } from "express";
-import { type Model } from "mongoose";
+import mongoose, { type Model } from "mongoose";
 import {
   type RequestWithGame,
   type GameControllerStructure,
@@ -9,7 +9,7 @@ import { type Game } from "../types";
 import ServerError from "../../server/errors/ServerError/ServerError.js";
 
 class GamesController implements GameControllerStructure {
-  constructor(private readonly gamesModel: Model<Omit<Game, "_id">>) {}
+  constructor(private readonly gamesModel: Model<Game>) {}
 
   get = async (_req: Request, res: Response): Promise<void> => {
     const statusCode = 200;
@@ -37,7 +37,7 @@ class GamesController implements GameControllerStructure {
   delete = async (req: RequestWithId, res: Response) => {
     const { _id } = req.params;
 
-    if (_id.length !== 24) {
+    if (!mongoose.isValidObjectId(_id)) {
       throw new ServerError(400, "Id is not correct");
     }
 
@@ -53,7 +53,7 @@ class GamesController implements GameControllerStructure {
   getById = async (req: RequestWithId, res: Response) => {
     const { _id } = req.params;
 
-    if (_id.length !== 24) {
+    if (!mongoose.isValidObjectId(_id)) {
       throw new ServerError(400, "Id is not correct");
     }
 
