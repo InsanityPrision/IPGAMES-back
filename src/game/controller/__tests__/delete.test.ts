@@ -25,13 +25,11 @@ describe("Given the delete method of gamesController class", () => {
       imageAlt: "Outer Wilds cover",
     };
 
-    const mockGamesModel: Partial<Model<Omit<Game, "_id">>> = {
+    const mockGamesModel: Partial<Model<Game>> = {
       findByIdAndDelete: jest.fn().mockResolvedValue(newGame),
     };
 
-    const gamesController = new GamesController(
-      mockGamesModel as Model<Omit<Game, "_id">>,
-    );
+    const gamesController = new GamesController(mockGamesModel as Model<Game>);
 
     const res: Partial<Response> = {
       status: jest.fn().mockReturnThis(),

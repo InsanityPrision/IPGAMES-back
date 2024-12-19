@@ -9,7 +9,7 @@ afterEach(() => {
 
 describe("Given the get method of GamesController class", () => {
   describe("When it receives a response", () => {
-    const mockGamesModel: Partial<Model<Omit<Game, "_id">>> = {
+    const mockGamesModel: Partial<Model<Game>> = {
       find: jest.fn().mockReturnValue({
         sort: jest.fn().mockReturnValue({
           exec: jest.fn().mockResolvedValue([
@@ -20,9 +20,7 @@ describe("Given the get method of GamesController class", () => {
         }),
       }),
     };
-    const gamesController = new GamesController(
-      mockGamesModel as Model<Omit<Game, "_id">>,
-    );
+    const gamesController = new GamesController(mockGamesModel as Model<Game>);
 
     const req = {};
     const res: Partial<Response> = {
